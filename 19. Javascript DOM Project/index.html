@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laundry Service</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            FreshCare
+        </div>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact Us</a>
+            <a href="#about">About Us</a>
+        </div>
+
+        <div class="user-area">
+            <span class="username">Khushi</span>
+
+            <button class="logout-btn" onclick="logout()">
+                ↪
+            </button>
+        </div>
+
+    </nav>
+
+
+    <main class="main-container">
+
+        <div class="left-column">
+
+            <section class="card added-items-card">
+
+                <div class="card-title">
+                    Added Items
+                </div>
+
+                <div class="items-header">
+                    <span>S.No</span>
+                    <span>Service Name</span>
+                    <span>Price</span>
+                </div>
+
+                <div id="cart-items" class="cart-items"></div>
+
+                <div id="empty-cart" class="empty-cart">
+
+                    <div class="info-icon">
+                        i
+                    </div>
+
+                    <h3>
+                        No Items Added
+                    </h3>
+
+                    <p>
+                        Add items to the cart from the services bar
+                    </p>
+
+                </div>
+
+                <div class="total-row">
+                    <span>Total Amount</span>
+                    <span id="total-amount">₹ 0</span>
+                </div>
+
+            </section>
+
+
+            <section class="card booking-card">
+
+                <h2>
+                    Book Now
+                </h2>
+
+                <form id="booking-form">
+
+                    <div class="form-group">
+
+                        <label for="full-name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="full-name"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email ID
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                placeholder="abc@gmail.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="phone">
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="0XX000XX00"
+                                maxlength="10"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="main-book-btn"
+                    >
+                        Book now
+                    </button>
+
+                </form>
+
+            </section>
+
+        </div>
+
+
+        <section
+            class="card services-card"
+            id="services">
+
+            <div class="services-heading">
+
+                <h1>
+                    Browse Our Services
+                </h1>
+
+                <p>
+                    Click on the add to cart button to add
+                    the services to your cart or press skip
+                </p>
+
+            </div>
+
+
+            <div class="service-display">
+
+                <button
+                    class="slider-btn prev-btn"
+                    onclick="previousService()"
+                >
+                    ‹
+                </button>
+
+
+                <div
+                    class="service-slide active"
+                    id="service-1"
+                >
+
+                    <img
+                        src="w1.jpg"
+                        alt="Dry Cleaning"
+                    >
+
+                    <div class="service-details">
+
+                        <h2>
+                            Dry Cleaning
+                        </h2>
+
+                        <span>
+                            ₹200.00
+                        </span>
+
+                    </div>
+
+                    <div class="service-buttons">
+
+                        <button
+                            class="skip-service-btn"
+                            onclick="skipService()"
+                        >
+                            Skip Item
+                            <span>⊖</span>
+                        </button>
+
+                        <button
+                            class="add-service-btn"
+                            onclick="addCurrentService()"
+                        >
+                            Add Item
+                            <span>⊕</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="service-slide"
+                    id="service-2"
+                >
+
+                    <img
+                        src="w2.jpg"
+                        alt="Leather and Suede Cleaning"
+                    >
+
+                    <div class="service-details">
+
+                        <h2>
+                            Leather & Suede Cleaning
+                        </h2>
+
+                        <span>
+                            ₹599.00
+                        </span>
+
+                    </div>
+
+                    <div class="service-buttons">
+
+                        <button
+                            class="skip-service-btn"
+                            onclick="skipService()"
+                        >
+                            Skip Item
+                            <span>⊖</span>
+                        </button>
+
+                        <button
+                            class="add-service-btn"
+                            onclick="addCurrentService()"
+                        >
+                            Add Item
+                            <span>⊕</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="service-slide"
+                    id="service-3"
+                >
+
+                    <img
+                        src="w3.webp"
+                        alt="Ironing"
+                    >
+
+                    <div class="service-details">
+
+                        <h2>
+                            Ironing
+                        </h2>
+
+                        <span>
+                            ₹99.00
+                        </span>
+
+                    </div>
+
+                    <div class="service-buttons">
+
+                        <button
+                            class="skip-service-btn"
+                            onclick="skipService()"
+                        >
+                            Skip Item
+                            <span>⊖</span>
+                        </button>
+
+                        <button
+                            class="add-service-btn"
+                            onclick="addCurrentService()"
+                        >
+                            Add Item
+                            <span>⊕</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="service-slide"
+                    id="service-4"
+                >
+
+                    <img
+                        src="w4.webp"
+                        alt="Wedding Dress Cleaning"
+                    >
+
+                    <div class="service-details">
+
+                        <h2>
+                            Wedding Dress Cleaning
+                        </h2>
+
+                        <span>
+                            ₹999.00
+                        </span>
+
+                    </div>
+
+                    <div class="service-buttons">
+
+                        <button
+                            class="skip-service-btn"
+                            onclick="skipService()"
+                        >
+                            Skip Item
+                            <span>⊖</span>
+                        </button>
+
+                        <button
+                            class="add-service-btn"
+                            onclick="addCurrentService()"
+                        >
+                            Add Item
+                            <span>⊕</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="service-slide"
+                    id="service-5"
+                >
+
+                    <img
+                        src="w5.jpg"
+                        alt="Wash and Fold"
+                    >
+
+                    <div class="service-details">
+
+                        <h2>
+                            Wash & Fold
+                        </h2>
+
+                        <span>
+                            ₹199.00
+                        </span>
+
+                    </div>
+
+                    <div class="service-buttons">
+
+                        <button
+                            class="skip-service-btn"
+                            onclick="skipService()"
+                        >
+                            Skip Item
+                            <span>⊖</span>
+                        </button>
+
+                        <button
+                            class="add-service-btn"
+                            onclick="addCurrentService()"
+                        >
+                            Add Item
+                            <span>⊕</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="service-slide"
+                    id="service-6"
+                >
+
+                    <img
+                        src="w6.webp"
+                        alt="Stain Removal"
+                    >
+
+                    <div class="service-details">
+
+                        <h2>
+                            Stain Removal
+                        </h2>
+
+                        <span>
+                            ₹249.00
+                        </span>
+
+                    </div>
+
+                    <div class="service-buttons">
+
+                        <button
+                            class="skip-service-btn"
+                            onclick="skipService()"
+                        >
+                            Skip Item
+                            <span>⊖</span>
+                        </button>
+
+                        <button
+                            class="add-service-btn"
+                            onclick="addCurrentService()"
+                        >
+                            Add Item
+                            <span>⊕</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="slider-btn next-btn"
+                    onclick="nextService()"
+                >
+                    ›
+                </button>
+
+            </div>
+
+
+            <div class="cart-message">
+
+                <span class="cart-icon">
+                    🛒
+                </span>
+
+                <p>
+                    Add the items to the cart and book now
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <div
+        id="success-popup"
+        class="popup-overlay"
+    >
+
+        <div class="popup-box">
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>
+                Booking Successful!
+            </h2>
+
+            <p id="success-message">
+                Your booking has been confirmed.
+            </p>
+
+            <button
+                class="popup-btn"
+                onclick="closePopup()"
+            >
+                OK
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
